@@ -16,12 +16,14 @@ type Movie struct {
 	Directors []Artist
 }
 
-func FindMovie(query string) []Movie {
+func FindMovie(query string, exact bool) []Movie {
 	req := imdbHttpClient()
 	req.Url = config.FindUrlBase
 	req.GetParams["ttype"] = config.GetParamForMovie
 	req.GetParams["q"] = query
-	//req.GetParams["q"] = strings.ReplaceAll(query, " ", "%20")
+	if exact {
+		req.GetParams["exact"] = "true"
+	}
 	response, err := req.Get()
 	if err != nil {
 		log.Fatalln(err)

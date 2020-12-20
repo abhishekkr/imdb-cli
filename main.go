@@ -8,14 +8,15 @@ import (
 )
 
 var (
-	Title = flag.String("title", "", "title to search for")
+	Title      = flag.String("title", "", "title to search for")
+	ExactMatch = flag.Bool("exact", false, "title to search for")
 )
 
 func main() {
 	flag.Parse()
 	if *Title != "" {
 		log.Printf("looking for: %v", *Title)
-		movies := imdb.FindMovie(*Title)
+		movies := imdb.FindMovie(*Title, *ExactMatch)
 		for _, movie := range movies {
 			movie.GetDetails()
 			movie.Print()
