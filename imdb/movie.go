@@ -16,33 +16,6 @@ type Movie struct {
 	Directors []Artist
 }
 
-func FindMovie(query string, exact bool) []Movie {
-	req := imdbHttpClient()
-	req.Url = config.FindUrlBase
-	req.GetParams["ttype"] = config.GetParamForMovie
-	req.GetParams["q"] = query
-	if exact {
-		req.GetParams["exact"] = "true"
-	}
-	response, err := req.Get()
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	doc, err := goquery.NewDocumentFromReader(strings.NewReader(response))
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	moviesDoc := doc.Find(config.ImdbTitleSelector)
-	movies := make([]Movie, moviesDoc.Length())
-	moviesDoc.Each(func(i int, s *goquery.Selection) {
-		movies[i].Name = s.Text()
-		movies[i].Link = s.AttrOr("href", "")
-	})
-	return movies
-}
-
 func (m *Movie) GetDetails() {
 	req := imdbHttpClient()
 	req.Url = fmt.Sprintf("%s%s", config.ImdbUrlBase, m.Link)

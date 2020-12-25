@@ -7,10 +7,7 @@ import (
 
 func imdbHttpClient() *golhttpclient.HTTPRequest {
 	req := golhttpclient.HTTPRequest{
-		GetParams: map[string]string{
-			"s":    "tt",
-			"ref_": "fn_ft",
-		},
+		GetParams: map[string]string{},
 		HTTPHeaders: map[string]string{
 			"user-agent": config.HTTPUserAgent,
 		},
