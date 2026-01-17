@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 
 	imdb "github.com/abhishekkr/imdb-cli/imdb"
@@ -39,6 +40,6 @@ func main() {
 			movie.Print()
 		}
 	} else {
-		log.Println("No param passed for any task, try '-help' to see capabilities.")
+		fmt.Println("No param passed for any task, try '-help' to see capabilities.")
 	}
 }
