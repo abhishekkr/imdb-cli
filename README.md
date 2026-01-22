@@ -5,6 +5,24 @@
 
 * Build `go build -o out/imdb main.go` or `./build.sh`
 
+```
+Usage of ./out/imdb:
+  -details
+    	To fetch details for the Title
+  -episode
+    	TV Episode to search for
+  -exact
+    	Exact Match to search for
+  -game
+    	Video Game to search for
+  -movie
+    	Movie to search for
+  -title string
+    	Title to search for
+  -tv
+    	TV to search for
+```
+
 
 * Search for all Titles matching a term
 

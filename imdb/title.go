@@ -35,7 +35,9 @@ func (tytl *Title) GetDetails() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	tytl.Credits.get(doc)
+	if tytl.Credits.get(doc) == nil {
+		tytl.HasCredits = true
+	}
 }
 
 func (tytl *Title) Print() {

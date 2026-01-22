@@ -15,6 +15,7 @@ var (
 	flgTVEpisode  = flag.Bool("episode", false, "TV Episode to search for")
 	flgVideoGame  = flag.Bool("game", false, "Video Game to search for")
 	flgExactMatch = flag.Bool("exact", false, "Exact Match to search for")
+	flgGetDetails = flag.Bool("details", false, "To fetch details for the Title")
 )
 
 func titleCategory() imdb.TitleCategory {
@@ -36,7 +37,9 @@ func main() {
 		log.Printf("looking for: %v", *flgTitle)
 		movies := imdb.FindTitle(*flgTitle, titleCategory(), *flgExactMatch)
 		for _, movie := range movies {
-			movie.GetDetails()
+			if *flgGetDetails {
+				movie.GetDetails()
+			}
 			movie.Print()
 		}
 	} else {

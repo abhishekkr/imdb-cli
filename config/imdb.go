@@ -10,11 +10,13 @@ const (
 	GetParamForTVEpisodeTitle = "ep"
 	GetParamForVideoGameTitle = "vg"
 
-	ImdbItemSelector            = ".ipc-metadata-list-summary-item"
-	ImdbTitleSelector           = ".ipc-title__text"
-	ImdbLinkSelector            = ".ipc-title-link-wrapper"
-	CreditSummaryLabelsSelector = "#fullcredits_content .dataHeaderWithBorder"
-	CreditSummaryValuesSelector = "#fullcredits_content .simpleCreditsTable"
+	ImdbItemSelector  = ".ipc-metadata-list-summary-item"
+	ImdbTitleSelector = ".ipc-title__text"
+	ImdbLinkSelector  = ".ipc-title-link-wrapper"
+
+	CreditSectionSelector = ".ipc-page-section"
+	CreditLabelSelector   = ".ipc-title__text"
+	CreditValuesSelector  = ".name-credits--title-text-big"
 )
 
 var (
