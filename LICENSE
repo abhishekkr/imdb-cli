@@ -1,5 +1,11 @@
 Copyright (c) 2013 abhishekkr
 
+This is a sample project showcasing how to make CLI interface to serve info from a traditional website.
+
+It's not intended to be used for scraping IMDB's data.
+
+---
+
 MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining
